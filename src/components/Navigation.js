@@ -12,7 +12,7 @@ function Navigation() {
                 <Nav className='ml-auto'>
                     <Nav.Link ><NavLink exact className='text-light text-decoration-none' activeClassName="active" to='/'>Home</NavLink></Nav.Link>
                     <Nav.Link><NavLink className='text-light text-decoration-none' activeClassName="active" to='/deals'>Deals</NavLink></Nav.Link>
-                    <Nav.Link><NavLink className='text-light text-decoration-none cart' activeClassName="active" to='/cart'>Cart <i class="fas fa-shopping-cart"></i><span class='badge badge-warning' id='lblCartCount'> 5 </span></NavLink></Nav.Link>    
+                    <Nav.Link><NavLink className='text-light text-decoration-none cart' activeClassName="active" to='/cart'>Cart <i className="fas fa-shopping-cart"></i><span className='badge badge-warning' id='lblCartCount'> 5 </span></NavLink></Nav.Link>    
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

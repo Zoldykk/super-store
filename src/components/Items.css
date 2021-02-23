@@ -1,0 +1,17 @@
+.grid{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 20px;
+}
+
+.img{
+    margin: 10px auto;
+    width: 50%;
+    height: 40%;
+}
+
+.loading-msg{
+    text-align: center;
+}
+
