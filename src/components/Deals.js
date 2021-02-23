@@ -1,7 +1,7 @@
 import Navigation from './Navigation';
 import RatingStars from './RatingStars';
 import {useEffect, useState} from 'react'
-import {Card, Button, CardDeck, Container, Row, Col} from 'react-bootstrap';
+import {Card, Button, Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Items.css'
 import useFetch from "../hooks/useFetch"
