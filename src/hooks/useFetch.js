@@ -14,7 +14,7 @@ const useFetch = (url) =>{
             setIsLoading(false)
         })
     }, [])
-    return {data, isLoading} 
+    return {data, isLoading, setData} 
 }
 
 export default useFetch;

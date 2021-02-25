@@ -24,6 +24,8 @@
 .quantity input{
     max-width: 8%;
     text-align: center;
+    background-color: rgb(235, 229, 229);
+    border: none;
 }
 
 @media only screen and (max-width: 768px) {

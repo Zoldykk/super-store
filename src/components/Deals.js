@@ -3,7 +3,7 @@ import RatingStars from './RatingStars';
 import {useEffect, useState} from 'react'
 import {Card, Button, Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Items.css'
+import './Styles/Items.css'
 import useFetch from "../hooks/useFetch"
 import {Link} from 'react-router-dom'
 
@@ -25,7 +25,7 @@ function Deals() {
             {isLoading && <h1 className='loading-msg'>Loading ...</h1>}
             <Container className='grid'>
             { itemsOnSale && itemsOnSale.map(item =>(
-                <Row>
+                <Row key={item._id}>
                     <Col>
                         <Card className='grid-item h-100'>
                             <Card.Img className='img' variant="top" src={item.imageUrl} />

@@ -1,7 +1,9 @@
 import Navigation from './Navigation';
 import {useEffect, useState} from 'react';
 import RatingStars from './RatingStars';
-import './SingleItem.css'
+import {MovieContext} from './Contexts/ProductContext'
+import {useContext} from 'react'
+import './Styles/SingleItem.css'
 
 
 function SingleItem(props) {
@@ -9,6 +11,8 @@ function SingleItem(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [quantity, setQuantity] = useState('')
     const [errors, setErrors] = useState(false)
+    const [successMsg, setSuccessMsg] = useState(false)
+    const [cartProducts, setCartProducts] = useContext(MovieContext)
     useEffect(() => {
             fetch(`https://gp-super-store-api.herokuapp.com/item/${props.match.params.itemId}`)
             .then(res =>{
@@ -25,6 +29,8 @@ function SingleItem(props) {
             setErrors(true)
         }else{
             setErrors(false)
+            setSuccessMsg(true)
+            setCartProducts(prevCartProducts => [...prevCartProducts, {_id: product._id, name: product.name, price: product.price, quantity: quantity, imageUrl: product.imageUrl, total: quantity * product.price}])
         }
     }
 
@@ -42,6 +48,13 @@ function SingleItem(props) {
                         <div className="d-flex justify-content-center">
                             <div className="alert alert-danger col-md-12 col-sm-6" role="alert">
                                 The requested quantity is not available.
+                            </div> 
+                        </div>
+                        }
+                        { successMsg &&
+                        <div className="d-flex justify-content-center">
+                            <div className="alert alert-success col-md-12 col-sm-6" role="alert">
+                                Item added to cart!
                             </div> 
                         </div>
                         }

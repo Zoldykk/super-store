@@ -1,15 +1,17 @@
-import {Card, Button, CardDeck, Container, Row, Col} from 'react-bootstrap';
+import {Card, Button, Container, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import RatingStars from './RatingStars';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Items.css'
+import './Styles/Items.css'
+import ItemsPagination from './ItemsPagination'
 
-function Items({products, isLoading}) {
+
+function Items({products}) {
     return (
         <div className='container'>
             <Container className='grid'>
-            {products.map(item =>(
-                <Row>
+            {products && products.map(item =>(
+                <Row key={item._id}>
                     <Col>
                         <Card className='grid-item h-100'>
                             <Card.Img className='img' variant="top" src={item.imageUrl} />
@@ -28,6 +30,7 @@ function Items({products, isLoading}) {
                 </Row>
             ))}
             </Container>
+            {/*<ItemsPagination />*/}
         </div>
     )
 }
