@@ -4,7 +4,6 @@
 
 .cart {
   position: relative;
-  padding: 4px 5px;
 }
 
 .fa-shopping-cart {
@@ -17,11 +16,12 @@
   -moz-border-radius: 9px;
   border-radius: 9px;
 }
+
 #lblCartCount {
   position: absolute;
   right: 0px;
   top: 0px;
-  padding: 0 5px;
-  vertical-align: top;
+  padding: 0.5px 5px;
   color: #fff;
+  margin: 0px -7px;
 }

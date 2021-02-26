@@ -23,26 +23,26 @@ function Deals() {
             <Navigation />
             <div className='container'>
             {isLoading && <h1 className='loading-msg'>Loading ...</h1>}
-            <Container className='grid'>
-            { itemsOnSale && itemsOnSale.map(item =>(
-                <Row key={item._id}>
-                    <Col>
-                        <Card className='grid-item h-100'>
-                            <Card.Img className='img' variant="top" src={item.imageUrl} />
-                            <Card.Body>
-                                <Card.Title>{item.name}</Card.Title>
-                                <Card.Text>
-                                    <RatingStars rating={item.avgRating} />
-                                </Card.Text>
-                                <Card.Title>{`$${item.price}`}</Card.Title>
-                            </Card.Body>
-                            <Card.Footer className='d-flex justify-content-center'>
-                                <Link to={`/item/${item._id}`}><Button variant="badge text-white badge-dark">View Item</Button></Link>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
+            <Container>
+                <Row className='justify-content-md-center'>
+                    {itemsOnSale && itemsOnSale.map(item =>(
+                            <Col key={item._id} xs={12} lg={4} md={6} className='mt-5'>
+                                <Card className='grid-item h-100'>
+                                    <Card.Img className='img' variant="top" src={item.imageUrl} />
+                                    <Card.Body>
+                                        <Link to={`/item/${item._id}`}><Card.Title className='font-weight-bold text-dark'>{item.name}</Card.Title></Link>
+                                        <Card.Text>
+                                            <RatingStars rating={item.avgRating}/>
+                                        </Card.Text>
+                                        <Card.Title className='font-weight-bold'>{`$${item.price}`}</Card.Title>
+                                    </Card.Body>
+                                    <Card.Footer className='d-flex justify-content-center'>
+                                        <Link to={`/item/${item._id}`}><Button variant="badge text-white badge-dark">View Item</Button></Link>
+                                    </Card.Footer>
+                                </Card>
+                            </Col>
+                    ))}
                 </Row>
-            ))}
             </Container>
         </div>
         </div>
