@@ -1,7 +1,7 @@
 import Navigation from './Navigation';
 import Items from './Items';
 import Search from './Search'
-import useFetch from "../hooks/useFetch"
+import useFetch from "../Hooks/useFetch"
 import {useState} from 'react';
 
 

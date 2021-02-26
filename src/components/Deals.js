@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react'
 import {Card, Button, Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/Items.css'
-import useFetch from "../hooks/useFetch"
+import useFetch from "../Hooks/useFetch"
 import {Link} from 'react-router-dom'
 
 

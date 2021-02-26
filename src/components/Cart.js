@@ -1,9 +1,12 @@
-import {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect, useState, useReducer} from 'react'
 import Navigation from './Navigation';
-import {MovieContext} from './Contexts/ProductContext'
+import {MovieContext} from '../Contexts/ProductContext'
+import {Link} from 'react-router-dom'
 import './Styles/Cart.css'
 
+
 function Cart() {
+    const [_, forceUpdate] = useReducer((x) => x + 1, 0);
     const [cartProducts, setCartProducts] = useContext(MovieContext);
     const [quantity, setQuantity] = useState('')
     const [total, setTotal] = useState(0);
@@ -25,7 +28,15 @@ function Cart() {
     }, [cartProducts]);
 
     const removeItem = (e) =>{
-        console.log(e.target.getAttribute('dataId'))
+        let items = cartProducts;
+        const findIndex = items.findIndex((item => item._id == e.target.dataid))
+        items.splice(findIndex, 1)
+        setCartProducts(items)
+        forceUpdate()
+    }
+
+    const updateQuantity = (e) =>{
+        
     }
 
     return (
@@ -48,20 +59,20 @@ function Cart() {
                                     </div>
                                     <div className="item-quantity">
                                         <span>Quantity:</span> 
-                                        <input type="text" value={product.quantity} onChange={(e) => setQuantity(e.target.value)}/>
+                                        <input type="text" value={product.quantity} onChange={updateQuantity}/>
                                     </div>
                                     <div className="price">
                                         <span className='font-weight-bold'>{`$${product.price}`}</span>
                                     </div>
                                 </div>
                                 <div className="item-options">
-                                    <button onClick={removeItem} dataId={product._id} className='btn btn-danger'>Remove</button>
+                                    <button onClick={removeItem} dataid={product._id} className='btn btn-danger'>Remove</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <div className="cart-footer">
-                        <button className='btn btn-warning font-weight-bold m-3'>Checkout</button>
+                        <Link to='/checkout'><button className='btn btn-warning font-weight-bold m-3'>Checkout</button></Link>
                         <span className='font-weight-bold m-3'>{`$${total}`}</span>
                     </div>
                 </>

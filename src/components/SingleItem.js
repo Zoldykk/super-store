@@ -1,7 +1,7 @@
 import Navigation from './Navigation';
 import {useEffect, useState} from 'react';
 import RatingStars from './RatingStars';
-import {MovieContext} from './Contexts/ProductContext'
+import {MovieContext} from '../Contexts/ProductContext'
 import {useContext} from 'react'
 import './Styles/SingleItem.css'
 

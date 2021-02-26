@@ -1,9 +1,10 @@
 import Home from './components/Home';
 import Deals from './components/Deals';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 import SingleItem from './components/SingleItem';
 import {Route, BrowserRouter as Router} from 'react-router-dom'
-import {MovieProvider} from '../src/components/Contexts/ProductContext'
+import {MovieProvider} from './Contexts/ProductContext'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path='/deals' component={Deals} />
           <Route path='/cart' component={Cart} />
           <Route path='/item/:itemId' component={SingleItem} />
+          <Route path='/checkout' component={Checkout} />
         </div>
       </MovieProvider>
     </Router>
