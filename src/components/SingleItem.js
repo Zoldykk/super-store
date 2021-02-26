@@ -1,9 +1,9 @@
 import Navigation from './Navigation';
 import {useEffect, useState} from 'react';
 import RatingStars from './RatingStars';
-import {MovieContext} from '../Contexts/ProductContext'
+import {MovieContext} from '../contexts/ProductContext'
 import {useContext} from 'react'
-import './Styles/SingleItem.css'
+import './styles/SingleItem.css'
 
 
 function SingleItem(props) {

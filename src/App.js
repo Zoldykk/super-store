@@ -4,7 +4,7 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import SingleItem from './components/SingleItem';
 import {Route, BrowserRouter as Router} from 'react-router-dom'
-import {MovieProvider} from './Contexts/ProductContext'
+import {MovieProvider} from './contexts/ProductContext'
 
 
 function App() {

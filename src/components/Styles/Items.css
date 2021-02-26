@@ -1,17 +1,48 @@
-.grid{
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    grid-gap: 20px;
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-gap: 20px;
 }
 
-.img{
-    margin: 10px auto;
-    width: 50%;
-    height: 40%;
+.img {
+  margin: 10px auto;
+  width: 50%;
+  height: 40%;
 }
 
-.loading-msg{
-    text-align: center;
+.loading-msg {
+  text-align: center;
 }
 
+
+
+.pagination li {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+}
+
+.pagination li:hover {
+  z-index: 2;
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  
+}
+
+.pagination li a {
+  text-decoration: none;
+}
+
+.activePage{
+    background-color: #343A40 !important;
+    color: white !important;
+}

@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState, useReducer} from 'react'
 import Navigation from './Navigation';
-import {MovieContext} from '../Contexts/ProductContext'
+import {MovieContext} from '../contexts/ProductContext'
 import {Link} from 'react-router-dom'
-import './Styles/Cart.css'
+import './styles/Cart.css'
 
 
 function Cart() {
@@ -10,20 +10,18 @@ function Cart() {
     const [cartProducts, setCartProducts] = useContext(MovieContext);
     const [quantity, setQuantity] = useState('')
     const [total, setTotal] = useState(0);
-
+    const calculateTotal = () =>{
+        let cartTotal = [];
+        let subTotal = 0;
+        cartProducts.map(product =>{
+            cartTotal.push(product.total)
+        })
+        cartTotal.map(number =>{
+            subTotal += number
+        })
+        setTotal(subTotal)
+    }
     useEffect(() => {
-        const calculateTotal = () =>{
-            let cartTotal = [];
-            let subTotal = 0;
-            cartProducts.map(product =>{
-                cartTotal.push(product.total)
-            })
-            cartTotal.map(number =>{
-                subTotal += number
-            })
-
-            setTotal(subTotal)
-        }
         calculateTotal()
     }, [cartProducts]);
 
@@ -32,6 +30,7 @@ function Cart() {
         const findIndex = items.findIndex((item => item._id == e.target.dataid))
         items.splice(findIndex, 1)
         setCartProducts(items)
+        calculateTotal()
         forceUpdate()
     }
 

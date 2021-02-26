@@ -1,16 +1,47 @@
 import {Card, Button, Container, Row, Col} from 'react-bootstrap';
+import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import RatingStars from './RatingStars';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Styles/Items.css'
-import ItemsPagination from './ItemsPagination'
+import './styles/Items.css'
+import ReactPaginate from 'react-paginate';
 
 
 function Items({products}) {
+    const [currentPage, setCurrentPage]= useState(0);
+    const [itemsPerPage]= useState(6)
+
+    const pagesVisited = currentPage * itemsPerPage;
+
+    const paginatedItems = products.slice(pagesVisited, pagesVisited + itemsPerPage)
+
+    const pageCount = Math.ceil(products.length / itemsPerPage)
+    console.log(pageCount)
+
+    const changePage = ({selected}) =>{
+        setCurrentPage(selected)
+    }
+    
+    // const [currentPage, setCurrentPage]= useState(2);
+    // const [itemsPerPage]= useState(6)
+    // const [paginatedItems, setPaginatedItems] = useState([])
+
+    // useEffect(() => {
+    //     const indexOfLastItem = currentPage * itemsPerPage;
+    //     const indexOfFirstPost = indexOfLastItem - itemsPerPage;
+    //     console.log(indexOfFirstPost, indexOfLastItem)
+    //     const paginatedItems = products.splice(indexOfFirstPost, indexOfLastItem)
+    //     setPaginatedItems(paginatedItems)
+    //     console.log(paginatedItems)
+    // }, [])
+
+    // const handleNext = () =>{
+    //     setCurrentPage(currentPage + 1)
+    // }
     return (
         <div className='container'>
             <Container className='grid'>
-            {products && products.map(item =>(
+            {products && paginatedItems.map(item =>(
                 <Row key={item._id}>
                     <Col>
                         <Card className='grid-item h-100'>
@@ -30,7 +61,16 @@ function Items({products}) {
                 </Row>
             ))}
             </Container>
-            {/*<ItemsPagination />*/}
+            <div className='row d-flex justify-content-center'>
+                <ReactPaginate 
+                    previousLabel={'Prev'}
+                    nextLable={'Next'}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={'pagination mt-5 d-flex align-items-center'}
+                    activeClassName={'activePage'}
+                />
+            </div>
         </div>
     )
 }

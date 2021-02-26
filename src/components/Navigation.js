@@ -1,9 +1,9 @@
 import {Navbar, Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link, NavLink} from 'react-router-dom'
-import './Styles/Nav.css'
+import './styles/Nav.css'
 import {useContext} from 'react'
-import {MovieContext} from '../Contexts/ProductContext'
+import {MovieContext} from '../contexts/ProductContext'
 
 
 function Navigation() {
