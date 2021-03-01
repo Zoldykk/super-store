@@ -1,36 +1,46 @@
-import Navigation from './Navigation';
-import Items from './Items';
-import Search from './Search'
-import useFetch from "../hooks/useFetch"
-import {useState} from 'react';
-
+import Navigation from "./Navigation";
+import Items from "./Items";
+import Search from "./Search";
+import useFetch from "../hooks/useFetch";
+import { useState } from "react";
 
 function Home() {
-    const {data: products, isLoading, setData} = useFetch('https://gp-super-store-api.herokuapp.com/item/list')
-    const [error, setError] = useState(false)
-    
-    const handleSearch = (query) =>{
-        if(query === ''){
-            setData(products)
-            console.log(products)
+  const { data: products, isLoading, setData: setProducts } = useFetch(
+    "https://gp-super-store-api.herokuapp.com/item/list"
+  );
+  const [searchError, setSearchError] = useState(false);
+  const handleSearch = async (query) => {
+    fetch("https://gp-super-store-api.herokuapp.com/item/list")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setSearchError(false);
+        const filteredProducts = data.items.filter((product) => {
+          return product.name.toLowerCase().includes(query.toLowerCase());
+        });
+        if (filteredProducts.length === 0) {
+          setSearchError(true);
         }
-        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()))
-        if(filteredProducts.length <= 0){
-            setError(true)
-            setData([])
-        }else{
-            setError(false)
-            setData(filteredProducts)
-        }
-    }
+        setProducts(filteredProducts);
+      });
+  };
 
-    return (
-        <div>
-            <Navigation />
-            <Search error={error} getSearchvalue={handleSearch} />
-            {isLoading ? <h1 className='loading-msg'>Loading ... </h1> : <Items isLoading={isLoading} products={products}/>}
-        </div>
-    )
+  return (
+    <div>
+      <Navigation />
+      <Search error={searchError} getSearchvalue={handleSearch} />
+      {isLoading ? (
+        <h1 className="mt-4 text-center">Loading ... </h1>
+      ) : (
+        <Items
+          isLoading={isLoading}
+          searchError={searchError}
+          products={products}
+        />
+      )}
+    </div>
+  );
 }
 
 export default Home;

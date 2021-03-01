@@ -48,7 +48,8 @@
 .item-quantity input{
     background-color: rgb(235, 229, 229);
     border: none;
-    max-width: 15%;
+    width: 10%;
+    min-width: 40px;
     margin: 0 5px;
     text-align: center;
 }

@@ -1,13 +1,13 @@
 import {useState, createContext} from 'react'; 
 
-export const MovieContext = createContext()
+export const ProductContext = createContext()
 
-export const MovieProvider = (props) =>{
+export const ProductProvider = (props) =>{
     const [cartProducts, setCartProducts] = useState([])
 
     return(
-        <MovieContext.Provider value={[cartProducts, setCartProducts]}>
+        <ProductContext.Provider value={[cartProducts, setCartProducts]}>
             {props.children}
-        </MovieContext.Provider>
+        </ProductContext.Provider>
     )
 }

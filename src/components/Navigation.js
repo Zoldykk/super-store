@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link, NavLink} from 'react-router-dom'
 import './styles/Nav.css'
 import {useContext} from 'react'
-import {MovieContext} from '../contexts/ProductContext'
+import {ProductContext} from '../contexts/ProductContext'
 
 
 function Navigation() {
-    const [cartProducts, setCartProducts] = useContext(MovieContext)
+    const [cartProducts, setCartProducts] = useContext(ProductContext)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand><Link className='text-light text-decoration-none' to='/'>Super Store</Link></Navbar.Brand>
