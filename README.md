@@ -3,7 +3,7 @@
 ## Basic overview
 This simple React e-commerce store was built following the instructions of this [guided project](https://guidedprojects.dev/super-store/intro)
 
-Demo: test.com
+Demo: https://super-st0re.netlify.app/
 
 ## Features
   * Select items from the list
