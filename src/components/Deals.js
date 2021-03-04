@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import RatingStars from "./RatingStars";
 import { useEffect, useState } from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
@@ -23,7 +22,6 @@ function Deals() {
 
   return (
     <div>
-      <Navigation />
       <div className="container">
         {isLoading && <h1 className="mt-4 text-center">Loading ...</h1>}
         <Container>

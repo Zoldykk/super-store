@@ -1,4 +1,5 @@
 import Home from './components/Home';
+import Navigation from './components/Navigation';
 import Deals from './components/Deals';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
@@ -12,6 +13,7 @@ function App() {
     <Router>
       <ProductProvider>
         <div className="App">
+          <Navigation />
           <Route path='/' exact component={Home} />
           <Route path='/deals' component={Deals} />
           <Route path='/cart' component={Cart} />

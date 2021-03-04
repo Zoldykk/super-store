@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState, useReducer } from "react";
-import Navigation from "./Navigation";
 import { ProductContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
 import "./styles/Cart.css";
@@ -36,7 +35,6 @@ function Cart() {
 
   return (
     <div>
-      <Navigation />
       <div className="container mt-5">
         <div className="cart-header mb-4">
           <h2>Shopping Cart</h2>

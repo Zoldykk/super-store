@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import RatingStars from "./RatingStars";
 import { ProductContext } from "../contexts/ProductContext";
@@ -51,7 +50,6 @@ function SingleItem(props) {
 
   return (
     <div>
-      <Navigation />
       <div className="container">
         {isLoading ? (
           <h1 className="mt-4 text-center">Loading ...</h1>

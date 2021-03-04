@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import Items from "./Items";
 import Search from "./Search";
 import useFetch from "../hooks/useFetch";
@@ -28,7 +27,6 @@ function Home() {
 
   return (
     <div>
-      <Navigation />
       <Search error={searchError} getSearchvalue={handleSearch} />
       {isLoading ? (
         <h1 className="mt-4 text-center">Loading ... </h1>

@@ -1,5 +1,5 @@
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import RatingStars from "./RatingStars";
 import "bootstrap/dist/css/bootstrap.min.css";
